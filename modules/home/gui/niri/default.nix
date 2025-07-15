@@ -1,0 +1,87 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  inherit (lib) mkEnableOption mkIf;
+  cfg = config.vro.desktop.niri.home-manager;
+in {
+  options.vro.desktop.niri.home-manager = {
+    enable = mkEnableOption "Enable HomeManager config for niri";
+  };
+
+  config = mkIf cfg.enable {
+    imports = [./config.nix];
+    services = {
+      dunst = {
+        enable = true;
+        settings = {
+          global = {
+            icon_path = "/run/current-system/sw/share/icons/hicolor/32x32/apps/";
+            follow = "mouse";
+            width = 300;
+            height = "(0, 300)";
+            offset = "(10, 10)";
+            origin = "top-right";
+            frame_width = 1;
+            layer = "overlay";
+            corner_radius = 7;
+            foreground = "#ebdbb2";
+            background = "#282828";
+            highlight = "#fe8019";
+            frame_color = "#3c3836";
+            font = "Inter 11";
+            markup = "full";
+            show_indicators = "false";
+            format = "<small>%a</small>\\n<b>%s</b>\\n%b";
+          };
+        };
+      };
+      swww.enable = true;
+    };
+
+    programs = {
+      wofi = {
+        enable = true;
+        settings = {
+          width = "30%";
+          allow_images = true;
+          allow_markup = true;
+          term = "kitty";
+          matching = "multi-contains";
+          insensitive = true;
+          gtk_dark = true;
+          prompt = "meow :3";
+        };
+      };
+    };
+
+    xdg.portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      config = {
+        niri = {
+          default = ["gtk" "gnome"];
+          "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
+          "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
+        };
+      };
+      extraPortals = [
+        pkgs.xdg-desktop-portal
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-gnome
+      ];
+    };
+
+    home.packages = with pkgs; [
+      wl-clipboard
+      resources
+      playerctl
+      waypaper
+      waybar
+      wlogout
+      xwayland-satellite
+    ];
+  };
+}

@@ -49,55 +49,57 @@
     # spicetify-nix to customize spotify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: {
-    nixosConfigurations = {
-      falke = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;}; # pass all inputs and username on to further config
-        modules = [
-          ./hosts/elster
-          inputs.lix-module.nixosModules.default
-          inputs.sops-nix.nixosModules.sops
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = {inherit inputs;};
-              users.lyssa = import ./home/lyssa;
-              backupFileExtension = "bak";
-            };
-            ### nixpkgs.hostPlatform = "x86_64-linux";
-            sops.defaultSopsFile = ./secrets/secrets.yaml;
-          }
-          inputs.stylix.nixosModules.stylix
-        ];
-      };
+  outputs =
+    {
+      self,
+      nixpkgs,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations = {
+        elster = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; }; # pass all inputs and username on to further config
+          modules = [
+            ./hosts/elster
+            inputs.lix-module.nixosModules.default
+            inputs.sops-nix.nixosModules.sops
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.lyssa = import ./home/lyssa;
+                backupFileExtension = "bak";
+              };
+              ### nixpkgs.hostPlatform = "x86_64-linux";
+              sops.defaultSopsFile = ./secrets/secrets.yaml;
+            }
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
 
-      eule = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;}; # pass all inputs and username on to further config
-        modules = [
-          ./hosts/eule
-          inputs.lix-module.nixosModules.default
-          inputs.sops-nix.nixosModules.sops
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = {inherit inputs;};
-              users.lyssa = import ./home/lyssa;
-              backupFileExtension = "bak";
-            };
-            ### nixpkgs.hostPlatform = "x86_64-linux";
-            sops.defaultSopsFile = ./secrets/secrets.yaml;
-          }
-          inputs.stylix.nixosModules.stylix
-        ];
+        eule = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; }; # pass all inputs and username on to further config
+          modules = [
+            ./hosts/eule
+            inputs.lix-module.nixosModules.default
+            inputs.sops-nix.nixosModules.sops
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.lyssa = import ./home/lyssa;
+                backupFileExtension = "bak";
+              };
+              ### nixpkgs.hostPlatform = "x86_64-linux";
+              sops.defaultSopsFile = ./secrets/secrets.yaml;
+            }
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
       };
     };
-  };
 }

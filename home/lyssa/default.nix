@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}: let
-  email = config.sops.secrets.lyssa-email.path;
-in {
+}: {
   imports = [
     ./../../modules/home
   ];
@@ -41,7 +39,7 @@ in {
     git = {
       enable = true;
       userName = "Lyssenka";
-      userEmail = "$(cat ${email})";
+      userEmail = "larissa.pf@proton.me";
     };
     direnv = {
       enable = true;

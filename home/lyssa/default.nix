@@ -14,7 +14,7 @@
     packages = [
       pkgs.bitwarden
       pkgs.obsidian
-      pkgs.gimp-with-plugins
+      pkgs.gimp3-with-plugins
       pkgs.kdePackages.kdenlive
       pkgs.piper
       pkgs.qbittorrent

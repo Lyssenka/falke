@@ -71,6 +71,7 @@
               backupFileExtension = "bak";
             };
             ### nixpkgs.hostPlatform = "x86_64-linux";
+            sops.defaultSopsFile = ./secrets/secrets.yaml;
           }
           inputs.stylix.nixosModules.stylix
         ];
@@ -92,6 +93,7 @@
               backupFileExtension = "bak";
             };
             ### nixpkgs.hostPlatform = "x86_64-linux";
+            sops.defaultSopsFile = ./secrets/secrets.yaml;
           }
           inputs.stylix.nixosModules.stylix
         ];

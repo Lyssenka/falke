@@ -20,7 +20,6 @@
     {
       home.packages = with pkgs; [
         osu-lazer-bin
-        prismlauncher
         pcsx2
         duckstation
         itch

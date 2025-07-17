@@ -4,5 +4,6 @@ _: {
     ./obs.nix
     ./appimage.nix
     ./gaming.nix
+    ./stylix.nix
   ];
 }

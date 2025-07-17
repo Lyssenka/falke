@@ -12,7 +12,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    imports = [./config.nix];
     services = {
       dunst = {
         enable = true;

@@ -2,15 +2,14 @@
   config,
   lib,
   pkgs,
-  username,
   ...
 }: {
   imports = [
     ./../../modules/home
   ];
   home = {
-    username = username;
-    homeDirectory = "/home/${username}";
+    username = "lyssa";
+    homeDirectory = "/home/lyssa";
     stateVersion = "25.05";
     packages = [
       pkgs.bitwarden
@@ -28,7 +27,7 @@
       pkgs.thunderbird
     ];
   };
-  config.vro = {
+  vro = {
     programs.helix.enable = true;
     desktop.niri.home-manager.enable = true;
   };

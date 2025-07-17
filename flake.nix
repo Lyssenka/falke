@@ -55,30 +55,47 @@
     ...
   } @ inputs: {
     nixosConfigurations = {
-      elster = let
-        username = "lyssa";
-      in
-        nixpkgs.lib.nixosSystem {
-          inherit username; # make username usable in this host config
-          specialArgs = {inherit inputs username;}; # pass all inputs and username on to further config
-          modules = [
-            ./hosts/elster
-            inputs.lix-module.nixosModules.default
-            inputs.sops-nix.nixosModules.sops
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = {inherit inputs username;};
-                users.${username} = import ./home/${username};
-                backupFileExtension = "bak";
-              };
-              ### nixpkgs.hostPlatform = "x86_64-linux";
-            }
-            inputs.stylix.nixosModules.stylix
-          ];
-        };
+      falke = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;}; # pass all inputs and username on to further config
+        modules = [
+          ./hosts/elster
+          inputs.lix-module.nixosModules.default
+          inputs.sops-nix.nixosModules.sops
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {inherit inputs;};
+              users.lyssa = import ./home/lyssa;
+              backupFileExtension = "bak";
+            };
+            ### nixpkgs.hostPlatform = "x86_64-linux";
+          }
+          inputs.stylix.nixosModules.stylix
+        ];
+      };
+
+      eule = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;}; # pass all inputs and username on to further config
+        modules = [
+          ./hosts/eule
+          inputs.lix-module.nixosModules.default
+          inputs.sops-nix.nixosModules.sops
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {inherit inputs;};
+              users.lyssa = import ./home/lyssa;
+              backupFileExtension = "bak";
+            };
+            ### nixpkgs.hostPlatform = "x86_64-linux";
+          }
+          inputs.stylix.nixosModules.stylix
+        ];
+      };
     };
   };
 }

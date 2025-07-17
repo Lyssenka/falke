@@ -41,6 +41,7 @@ in {
     };
 
     programs = {
+      niri.config = null;
       wofi = {
         enable = true;
         settings = {

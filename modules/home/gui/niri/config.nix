@@ -14,6 +14,7 @@
             track-layout "global"
         }
         touchpad {
+            dwt
             tap
             natural-scroll
             scroll-method "two-finger"
@@ -27,7 +28,7 @@
         }
     }
     output "eDP-1" {
-        scale 1
+        scale 2
         transform "normal"
         position x=0 y=0
         mode "3840x2400"

@@ -14,7 +14,7 @@ in
       id = 0;
       name = "Default";
       search = {
-        default = "Startpage";
+        default = "https://startpage.com";
         force = true;
       };
       extensions.packages = attrValues {

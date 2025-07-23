@@ -8,7 +8,7 @@
     targets.dunst.enable = false;
     targets.waybar.enable = false;
     cursor = {
-      name = "Vimix";
+      name = "Vimix-cursors";
       package = pkgs.vimix-cursors;
       size = 24;
     };

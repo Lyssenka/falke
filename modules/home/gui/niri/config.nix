@@ -97,7 +97,7 @@
     hotkey-overlay { skip-at-startup; }
     clipboard { disable-primary; }
     environment {
-        DISPLAY ":1"
+        DISPLAY ":0"
         EDITOR "hx"
     }
     binds {
@@ -186,7 +186,7 @@
         XF86AudioPrev { spawn "playerctl" "--player=%any,firefox" "previous"; }
         XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     }
-    spawn-at-startup "xwayland-satellite" ":1"
+    spawn-at-startup "xwayland-satellite"
     spawn-at-startup "swww" "init"
     spawn-at-startup "waybar"
     window-rule {

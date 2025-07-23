@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   imports = [
     # Include hardware scan and custom modules
     ./hardware-configuration.nix
@@ -7,6 +8,20 @@
 
   # We have to specify compression in the config for our Btrfs filesystem
   # Use Systemd-boot, change kernel to the latest one and prioritize loading the amd kernelmod
+
+  services.thermald.enable = true;
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
+    };
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+  };
+  programs.light.enable = true;
 
   networking = {
     hostName = "eule";

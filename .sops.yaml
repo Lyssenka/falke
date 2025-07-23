@@ -2,7 +2,7 @@ keys:
   - &users:
     - &flkr age1q9xz3tfsc5967l9c74l5m250v9zzx4q90n3r7sej6cvaw20j9dasczfep8
   - &hosts:
-    - &lstr age1f94p3keegjdls730y708wulsl2tr5wq4ecd4j4cg8dw7f55kwdvstk78vn
+    - &lstr age1lkp6nw05w50etkt4tldkrkulpu8f7z8z6y574jtwn20493l87v9qcwnra5
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:

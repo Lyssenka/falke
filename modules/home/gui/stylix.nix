@@ -7,6 +7,17 @@
   stylix = {
     targets.dunst.enable = false;
     targets.waybar.enable = false;
+    cursor = {
+      name = "Vimix";
+      package = pkgs.vimix-cursors;
+      size = 24;
+    };
+    icons = {
+      enable = true;
+      package = pkgs.vimix-icon-theme;
+      light = "Vimix";
+      dark = "Vimix";
+    };
     fonts = {
       sansSerif = {
         package = pkgs.atkinson-hyperlegible;

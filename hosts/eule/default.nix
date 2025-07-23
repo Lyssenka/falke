@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     # Include hardware scan and custom modules
@@ -10,6 +10,9 @@
   # Use Systemd-boot, change kernel to the latest one and prioritize loading the amd kernelmod
 
   services.thermald.enable = true;
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
   services.auto-cpufreq.enable = true;
   services.auto-cpufreq.settings = {
     battery = {

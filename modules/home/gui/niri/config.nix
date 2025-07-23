@@ -178,9 +178,9 @@
         Mod+X { close-window; }
         "Mod+dead_circumflex" { spawn "kitty"; }
         Print { screenshot; }
-        XF86MonBrightnessDown { spawn "light" "-U" "5"; }
-        XF86MonBrightnessUp { spawn "light" "-A" "5"; }
-        XF86Display { spawn "obs" }
+        XF86KbdBrightnessDown { spawn "light" "-U" "5"; }
+        XF86KbdBrightnessUp { spawn "light" "-A" "5"; }
+        XF86Display { spawn "obs"; }
         XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
         XF86AudioMicMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
         XF86AudioMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }

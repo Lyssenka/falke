@@ -65,6 +65,7 @@
       name = "default";
       isDefault = true;
       bookmarks = {
+        force = true;
         settings = [
           {
             name = "Default";

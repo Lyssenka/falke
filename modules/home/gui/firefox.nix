@@ -1,19 +1,87 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }:
-let
-  inherit (lib.attrsets) attrValues;
-in
 {
   programs.firefox = {
     enable = true;
+    policies = {
+      AutofillAddressEnabled = false;
+      AutofillCreditCardEnabled = false;
+      DisableFirefoxStudies = true;
+      DisableFormHistory = true;
+      DisableMasterPasswordCreation = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      DisplayBookmarksToolbar = "always";
+      EnableTrackingProtection = {
+        Value = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+        EmailTracking = true;
+      };
+      FirefoxHome = {
+        Search = true;
+        TopSites = false;
+        SponsoredTopSites = false;
+        Highlights = false;
+        Pocket = false;
+        Stories = false;
+        SponsoredPocket = false;
+        SponsoredStories = false;
+        Snippets = false;
+      };
+      HttpsOnlyMode = "enabled";
+      NoDefaultBookmarks = true;
+      OfferToSaveLogins = false;
+      PasswordManagerEnabled = false;
+      SkipTermsOfUse = true;
+      ExtensionSettings = {
+        "uBlock0@raymondhill.net" = {
+          default_area = "menupanel";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
+        # Bitwarden Password Manager
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+          default_area = "navbar";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/{446900e4-71c2-419f-a6a7-df9c091e268b}/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
+        # Auto Tab Discard
+        "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}" = {
+          default_area = "menupanel";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/{c2c003ee-bd69-42a2-b0e9-6f34222cb046}/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
+      };
+    };
     profiles.default = {
       id = 0;
       name = "default";
       isDefault = true;
+      bookmarks = {
+        settings = [
+          {
+            name = "Default";
+            toolbar = true;
+            bookmarks = [
+              {
+                name = "girlcloud";
+                url = "https://5-htp.store";
+              }
+              {
+                name = "YouTube";
+                url = "https://youtube.com";
+              }
+            ];
+          }
+        ];
+      };
       search = {
         force = true;
         default = "Startpage";
@@ -42,25 +110,23 @@ in
             icon = "https://wiki.nixos.org/favicon.png";
             definedAliases = [ "@nw" ];
           };
+          "Home Manager Options" = {
+            urls = [
+              { template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master"; }
+            ];
+            icon = "https://wiki.nixos.org/favicon.png";
+            definedAliases = [ "@hm" ];
+          };
           "Startpage" = {
-            urls = [ { template = "https://startpage.com"; } ];
+            urls = [ { template = "https://startpage.com/sp/search?query={searchTerms}"; } ];
             definedAliastes = [ "@sp" ];
           };
           bing.metaData.hidden = true;
           google.metaData.hidden = true;
         };
       };
-      extensions.packages = attrValues {
-        inherit (pkgs.nur.repos.rycee.firefox-addons)
-          ublock-origin
-          violentmonkey
-          darkreader
-          redirector
-          auto-tab-discard
-          bitwarden
-          ;
-      };
       settings = {
+        "layout.css.prefers-color-scheme.content-override" = 0;
         "browser.aboutConfig.showWarning" = false;
         "browser.startup.homepage" = "https://startpage.com";
         "browser.search.defaultenginename" = "Startpage";

@@ -12,7 +12,8 @@ in
     enable = true;
     profiles.default = {
       id = 0;
-      name = "Default";
+      name = "default";
+      isDefault = true;
       search = {
         force = true;
         default = "Startpage";

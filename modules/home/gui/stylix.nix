@@ -7,7 +7,7 @@
   stylix = {
     targets.dunst.enable = false;
     targets.waybar.enable = false;
-    targets.firefox.profileNames = [ "Default" ];
+    targets.firefox.profileNames = [ "default" ];
     cursor = {
       name = "Vimix-cursors";
       package = pkgs.vimix-cursors;

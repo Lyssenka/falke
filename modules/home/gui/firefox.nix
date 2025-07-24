@@ -39,16 +39,15 @@ in
           };
           "NixOS Wiki" = {
             urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
-            iconUpdateURL = "https://wiki.nixos.org/favicon.png";
-            updateInterval = 24 * 60 * 60 * 1000;
+            icon = "https://wiki.nixos.org/favicon.png";
             definedAliases = [ "@nw" ];
           };
           "Startpage" = {
             urls = [ { template = "https://startpage.com"; } ];
             definedAliastes = [ "@sp" ];
           };
-          "Bing".metaData.hidden = true;
-          "Google".metaData.hidden = true;
+          bing.metaData.hidden = true;
+          google.metaData.hidden = true;
         };
       };
       extensions.packages = attrValues {

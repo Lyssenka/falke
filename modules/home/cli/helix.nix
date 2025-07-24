@@ -4,10 +4,12 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.vro.programs.helix;
-in {
+in
+{
   options.vro.programs.helix = {
     enable = mkEnableOption "Enable Helix and necessary LSPs?";
   };
@@ -22,7 +24,9 @@ in {
           line-number = "relative";
           color-modes = true;
           end-of-line-diagnostics = "hint";
-          inline-diagnostics = {cursor-line = "warning";};
+          inline-diagnostics = {
+            cursor-line = "warning";
+          };
           lsp.display-inlay-hints = true;
           cursor-shape = {
             normal = "block";
@@ -34,7 +38,13 @@ in {
       };
       languages = {
         language-server = {
-          uwu-colors = {command = "${pkgs.uwu-colors}/bin/uwu_colors";};
+          qmlls = {
+            args = [ "-E" ];
+            command = "qmlls";
+          };
+          uwu-colors = {
+            command = "${pkgs.uwu-colors}/bin/uwu_colors";
+          };
         };
         language = [
           {
@@ -45,7 +55,7 @@ in {
           {
             name = "css";
             auto-format = true;
-            language-servers = ["uwu-colors"];
+            language-servers = [ "uwu-colors" ];
           }
         ];
       };

@@ -33,7 +33,6 @@
         Snippets = false;
       };
       HttpsOnlyMode = "enabled";
-      NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       PasswordManagerEnabled = false;
       SkipTermsOfUse = true;

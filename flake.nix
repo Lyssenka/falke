@@ -48,8 +48,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur.url = "github:nix-community/NUR";
-
     ### fun stuff ###
     # nix-gaming primarily for osu stable and mo2installer
     nix-gaming.url = "github:fufexan/nix-gaming";

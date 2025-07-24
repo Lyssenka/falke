@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./../../modules/home
   ];
@@ -34,7 +35,6 @@
 
   programs = {
     imv.enable = true;
-    firefox.enable = true;
     micro.enable = true;
     git = {
       enable = true;

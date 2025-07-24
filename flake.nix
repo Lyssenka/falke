@@ -36,6 +36,12 @@
     # niri as my compositor
     niri.url = "github:sodiboo/niri-flake";
 
+    # quickshell
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # stylix for consistent theming
     stylix = {
       url = "github:danth/stylix";

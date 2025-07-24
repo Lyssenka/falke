@@ -3,10 +3,12 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.vro.desktop.niri.home-manager;
-in {
+in
+{
   options.vro.desktop.niri.home-manager = {
     enable = mkEnableOption "Enable HomeManager config for niri";
   };
@@ -37,7 +39,6 @@ in {
           };
         };
       };
-      swww.enable = true;
     };
 
     programs = {
@@ -62,9 +63,12 @@ in {
       xdgOpenUsePortal = true;
       config = {
         niri = {
-          default = ["gtk" "gnome"];
-          "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
-          "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
+          default = [
+            "gtk"
+            "gnome"
+          ];
+          "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+          "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
         };
       };
       extraPortals = [

@@ -55,6 +55,7 @@
     screenshot-path "~/Nextcloud/Photos/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
     prefer-no-csd
     layout {
+        background-color "transparent"
         gaps 10
         struts {
             left 0

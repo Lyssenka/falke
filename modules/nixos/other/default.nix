@@ -2,6 +2,7 @@ _: {
   imports = [
     ./boot.nix
     ./networking.nix
+    ./bluetooth.nix
     ./nix.nix
     ./fonts.nix
     ./hardware.nix

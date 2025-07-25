@@ -9,6 +9,7 @@
   # We have to specify compression in the config for our Btrfs filesystem
   # Use Systemd-boot, change kernel to the latest one and prioritize loading the amd kernelmod
 
+  vro.services.bluetooth.enable = true;
   services.thermald.enable = true;
   services.fprintd.enable = true;
   services.fprintd.tod.enable = true;

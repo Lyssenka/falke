@@ -86,6 +86,8 @@ in
       waybar
       wlogout
       xwayland-satellite
+      hyprlock
+      hypridle
     ];
   };
 }

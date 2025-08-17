@@ -23,9 +23,6 @@
         disable-power-key-handling
         mod-key "Super"
 
-        touch {
-            map-to-output "eDP-1"
-        }
     }
     output "eDP-1" {
         scale 2

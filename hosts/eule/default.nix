@@ -11,11 +11,39 @@
 
   vro.services.bluetooth.enable = true;
   services.thermald.enable = true;
+  services.logind.powerKey = "suspend-then-hibernate";
+  services.logind.lidSwitch = "suspend-then-hibernate";
   services.fprintd.enable = true;
   services.fprintd.tod.enable = true;
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
   services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
+    };
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+  };
   programs.light.enable = true;
+  hardware = {
+    cpu.intel.updateMicrocode = true;
+    nvidia.open = true;
+    nvidiaSettings = true;
+    nvidia.modesetting = true;
+    nvidia.prime = {
+      offload.enable = true;
+      offload.enableOffloadCmd = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+  };
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
 
   networking = {
     hostName = "eule";

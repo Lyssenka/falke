@@ -31,7 +31,7 @@
   hardware = {
     cpu.intel.updateMicrocode = true;
     nvidia.open = true;
-    nvidiaSettings = true;
+    nvidia.nvidiaSettings = true;
     nvidia.modesetting.enable = true;
     nvidia.prime = {
       offload.enable = true;

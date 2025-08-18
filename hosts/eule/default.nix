@@ -13,13 +13,12 @@
   services.thermald.enable = true;
   services.logind.lidSwitch = "suspend-then-hibernate";
   services.fwupd.enable = true;
-  services.libinput = {
-    enable = true;
-
-  };
+  services.acpid.enable = true;
   services.fprintd.enable = true;
   services.fprintd.tod.enable = true;
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+  powerManagement.enable = true;
+  powerManagement.powertop.enable = true;
   services.auto-cpufreq.enable = true;
   services.auto-cpufreq.settings = {
     battery = {

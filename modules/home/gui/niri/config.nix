@@ -20,7 +20,6 @@
             scroll-method "two-finger"
         }
         focus-follows-mouse
-        disable-power-key-handling
         mod-key "Super"
         touch {
         map-to-output "Sharp Corporation 0x14D6 Unknown"

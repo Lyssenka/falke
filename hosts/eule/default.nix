@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
     # Include hardware scan and custom modules
@@ -11,15 +16,8 @@
 
   vro.services.bluetooth.enable = true;
   services.thermald.enable = true;
-  services.logind.lidSwitch = "suspend-then-hibernate";
+  services.logind.lidSwitch = "suspend";
   services.fwupd.enable = true;
-  services.acpid.enable = true;
-  services.udev.extraRules = ''
-    # Rule: Rebinds the ELAN touchscreen on "lid open" ACPI event
-    ACTION=="change", SUBSYSTEM=="acpi", ENV{ACPI_EVENT}=="button/lid.*open", \
-      RUN+="${pkgs.bash}/bin/bash -c 'echo i2c-ELAN2097:00 > /sys/bus/i2c/drivers/i2c_hid/unbind && echo i2c-ELAN2097:00 > /sys/bus/i2c/drivers/i2c_hid/bind'"
-  '';
-  hardware.i2c.enable = true;
   services.fprintd.enable = true;
   services.fprintd.tod.enable = true;
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
@@ -40,7 +38,6 @@
   hardware = {
     cpu.intel.updateMicrocode = true;
     nvidia.open = true;
-    nvidia.nvidiaSettings = true;
     nvidia.modesetting.enable = true;
     nvidia.prime = {
       offload.enable = true;

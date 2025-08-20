@@ -33,7 +33,6 @@ in
         home.packages = with pkgs; [
           osu-lazer-bin
           pcsx2
-          duckstation
           itch
           cemu
           heroic

@@ -6,5 +6,6 @@ _: {
     ./spicetify.nix
     ./stylix.nix
     ./firefox.nix
+    ./waybar.nix
   ];
 }

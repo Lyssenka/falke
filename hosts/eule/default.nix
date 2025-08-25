@@ -9,6 +9,7 @@
     # Include hardware scan and custom modules
     ./hardware-configuration.nix
     ./../../modules/nixos
+    ./../common.nix
   ];
 
   # We have to specify compression in the config for our Btrfs filesystem

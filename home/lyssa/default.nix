@@ -48,6 +48,7 @@
     };
     mpv.enable = true;
     jq.enable = true;
+    kitty.enable = true;
   };
   services = {
     udiskie.enable = true;

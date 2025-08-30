@@ -36,19 +36,19 @@
         scale 1
         focus-at-startup
         transform "normal"
-        position x=0 y=0
+        position x=1920 y=0
         mode "1920x1080"
     }
     output "DP-2" {
         scale 1
         transform "normal"
-        position x=1920 y=0
+        position x=3840 y=0
         mode "1920x1080"
     }
     output "HDMI-A-1" {
         scale 1
         transform "normal"
-        position x=-1920 y=0
+        position x=0 y=0
         mode "1920x1080"
     }
     screenshot-path "~/Nextcloud/Photos/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"

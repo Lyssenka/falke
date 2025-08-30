@@ -9,23 +9,28 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/3f9e98f5-8709-474e-8610-0ce85c6e3d06";
+    { device = "/dev/mapper/vg-nixos";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/28B4-267B";
+    { device = "/dev/disk/by-uuid/3C47-37E5";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
+  fileSystems."/data/storage" =
+    { device = "/dev/mapper/vg2-storage";
+      fsType = "ext4";
+    };
+
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/d7dd21f5-350f-4435-a449-7614711810a1"; }
+    [ { device = "/dev/mapper/vg-swap"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

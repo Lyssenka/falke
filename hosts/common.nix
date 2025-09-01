@@ -25,6 +25,7 @@
   programs = {
     zsh.enable = true;
     nh.enable = true;
+    kdeconnect.enable = true;
 
     appimage = {
       enable = true;

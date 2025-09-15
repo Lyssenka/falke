@@ -26,6 +26,7 @@
       pkgs.libreoffice
       pkgs.element-desktop
       pkgs.thunderbird
+      pkgs.xournalpp
     ];
   };
   vro = {

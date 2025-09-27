@@ -28,6 +28,7 @@
       preLVM = true;
     };
   };
+  vro.other.nvidia.enable = true;
   vro.services.bluetooth.enable = true;
   services.thermald.enable = true;
   services.logind.lidSwitch = "suspend";
@@ -44,8 +45,8 @@
       turbo = "never";
     };
     charger = {
-      governor = "performance";
-      turbo = "auto";
+      governor = "powersave";
+      turbo = "never";
     };
   };
   programs.light.enable = true;

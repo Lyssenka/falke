@@ -72,6 +72,7 @@ in
       pkgs.jdt-language-server
       pkgs.lua-language-server
       pkgs.rust-analyzer
+      pkgs.ty
     ];
   };
 }

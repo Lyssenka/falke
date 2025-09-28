@@ -27,6 +27,7 @@
       pkgs.element-desktop
       pkgs.thunderbird
       pkgs.xournalpp
+      pkgs.signal-desktop-bin
     ];
   };
   vro = {

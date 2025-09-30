@@ -20,13 +20,10 @@
       pkgs.piper
       pkgs.qbittorrent
       pkgs.equibop
-      pkgs.gucharmap
-      pkgs.filezilla
       pkgs.nemo-with-extensions
       pkgs.libreoffice
       pkgs.element-desktop
       pkgs.thunderbird
-      pkgs.xournalpp
       pkgs.signal-desktop-bin
     ];
   };

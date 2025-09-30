@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -17,7 +16,6 @@ in
   config = mkIf cfg.enable {
     programs.helix = {
       enable = true;
-      package = inputs.helix.packages."x86_64-linux".default;
       settings = {
         editor = {
           bufferline = "multiple";

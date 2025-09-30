@@ -15,6 +15,7 @@ in
 
   config = mkIf cfg.enable {
     services = {
+      swww.enable = true;
       dunst = {
         enable = true;
         settings = {

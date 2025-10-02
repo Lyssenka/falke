@@ -4,7 +4,7 @@
   ...
 }:
 {
-  sops.secrets.lyssa-password.neededForUsers = true;
+  # sops.secrets.lyssa-password.neededForUsers = true;
   users.users.lyssa = {
     isNormalUser = true;
     description = "Lyssa";
@@ -15,7 +15,7 @@
       "libvirt"
       "video"
     ];
-    hashedPasswordFile = config.sops.secrets.lyssa-password.path;
+    #    hashedPasswordFile = config.sops.secrets.lyssa-password.path;
     shell = pkgs.zsh;
   };
 }

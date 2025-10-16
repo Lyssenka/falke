@@ -1,7 +1,7 @@
 _: {
   imports = [
     ./helix.nix
-    ./zsh.nix
+    ./nushell.nix
     ./yazi.nix
     ./hyfetch.nix
   ];

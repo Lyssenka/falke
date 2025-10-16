@@ -3,6 +3,9 @@
   programs = {
     nushell = {
       enable = true;
+      settings = {
+        show_banner = false;
+      };
       shellAliases = {
         nrs = "nh os switch ~/falke";
         nfu = "nix flake update ~/falke";

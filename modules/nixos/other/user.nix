@@ -15,7 +15,12 @@
       "libvirt"
       "video"
     ];
+    shell = pkgs.bash;
     #    hashedPasswordFile = config.sops.secrets.lyssa-password.path;
-    shell = pkgs.zsh;
   };
+  programs.bash.interactiveShellInit = ''
+    if ! [ "$TERM" = "dumb" ]; then
+      exec nu
+    fi
+  '';
 }

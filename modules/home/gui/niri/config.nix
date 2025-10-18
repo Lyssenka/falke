@@ -2,6 +2,9 @@
 {
   xdg.configFile."niri/config.kdl".text = ''
     input {
+        mouse {
+            accel-profile "flat"
+        }
         keyboard {
             xkb {
                 layout "de"

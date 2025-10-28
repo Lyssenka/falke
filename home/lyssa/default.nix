@@ -15,16 +15,17 @@
     packages = [
       pkgs.bitwarden
       pkgs.obsidian
-      pkgs.gimp3-with-plugins
-      pkgs.kdePackages.kdenlive
+      # pkgs.gimp3-with-plugins
+      # pkgs.kdePackages.kdenlive
       pkgs.piper
       pkgs.qbittorrent
       pkgs.equibop
       pkgs.nemo-with-extensions
-      pkgs.libreoffice
+      # pkgs.libreoffice
       pkgs.element-desktop
       pkgs.thunderbird
       pkgs.signal-desktop-bin
+      pkgs.magic-wormhole-rs
     ];
   };
   vro = {

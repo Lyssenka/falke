@@ -59,26 +59,6 @@ in
       };
     };
 
-    xdg.portal = {
-      enable = true;
-      xdgOpenUsePortal = true;
-      config = {
-        niri = {
-          default = [
-            "gtk"
-            "gnome"
-          ];
-          "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-          "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-        };
-      };
-      extraPortals = [
-        pkgs.xdg-desktop-portal
-        pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-gnome
-      ];
-    };
-
     home.packages = with pkgs; [
       wl-clipboard
       resources

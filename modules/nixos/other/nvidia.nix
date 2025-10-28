@@ -28,6 +28,7 @@ in
       boot.blacklistedKernelModules = mkForce [
         "nouveau"
       ];
+      vro.gui.gaming.enable = true;
     };
   };
 }

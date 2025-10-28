@@ -17,6 +17,15 @@ in
     programs.helix = {
       enable = true;
       settings = {
+        keys.normal = {
+          C-y = [
+            ":sh rm -f /tmp/unique-file"
+            ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file"
+            ":insert-output echo \"\\x1b[?1049h\\x1b[?2004h\" > /dev/tty"
+            ":open %sh{cat /tmp/unique-file}"
+            ":redraw"
+          ];
+        };
         editor = {
           bufferline = "multiple";
           line-number = "relative";
@@ -66,7 +75,6 @@ in
       pkgs.vscode-langservers-extracted
       pkgs.bash-language-server
       pkgs.typescript-language-server
-      pkgs.haskell-language-server
       pkgs.jdt-language-server
       pkgs.lua-language-server
       pkgs.rust-analyzer

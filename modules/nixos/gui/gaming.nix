@@ -31,10 +31,10 @@ in
     home-manager.sharedModules = [
       {
         home.packages = with pkgs; [
-          osu-lazer-bin
-          pcsx2
-          itch
-          cemu
+          # osu-lazer-bin
+          # pcsx2
+          # itch
+          # cemu
           heroic
         ];
       }

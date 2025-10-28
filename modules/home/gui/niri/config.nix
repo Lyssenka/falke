@@ -33,7 +33,6 @@
         scale 2
         transform "normal"
         position x=0 y=0
-        mode "3840x2400"
     }
     output "DP-1" {
         scale 1

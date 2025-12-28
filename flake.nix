@@ -25,8 +25,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # spicetify-nix to customize spotify
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
   outputs =
     {

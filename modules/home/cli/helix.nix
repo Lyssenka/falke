@@ -17,6 +17,7 @@ in
     programs.helix = {
       enable = true;
       settings = {
+        theme = "gruvbox";
         keys.normal = {
           C-y = [
             ":sh rm -f /tmp/unique-file"

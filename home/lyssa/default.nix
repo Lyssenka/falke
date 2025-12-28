@@ -13,7 +13,7 @@
     homeDirectory = "/home/lyssa";
     stateVersion = "25.05";
     packages = [
-      pkgs.bitwarden
+      pkgs.bitwarden-desktop
       pkgs.obsidian
       # pkgs.gimp3-with-plugins
       # pkgs.kdePackages.kdenlive

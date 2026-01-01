@@ -2,11 +2,13 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.vro.desktop.niri.home-manager;
+  niri-screen-time = inputs.niri-screen-time.packages."${pkgs.system}".default;
 in
 {
   options.vro.desktop.niri.home-manager = {
@@ -59,16 +61,16 @@ in
       };
     };
 
-    home.packages = with pkgs; [
-      wl-clipboard
-      resources
-      playerctl
-      waypaper
-      waybar
-      wlogout
-      xwayland-satellite
-      hyprlock
-      hypridle
+    home.packages = [
+      pkgs.wl-clipboard
+      pkgs.resources
+      pkgs.playerctl
+      pkgs.waypaper
+      pkgs.waybar
+      pkgs.wlogout
+      pkgs.xwayland-satellite
+      pkgs.hyprlock
+      niri-screen-time
     ];
   };
 }

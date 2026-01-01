@@ -14,6 +14,7 @@
       "networkmanager"
       "libvirt"
       "video"
+      "input"
     ];
     shell = pkgs.bash;
     #    hashedPasswordFile = config.sops.secrets.lyssa-password.path;

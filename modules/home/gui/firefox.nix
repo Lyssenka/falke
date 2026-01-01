@@ -50,6 +50,13 @@
           installation_mode = "force_installed";
           private_browsing = true;
         };
+        # Floccus Bookmark Sync
+        "floccus@handmadeideas.org" = {
+          default_area = "menupanel";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/floccus@handmadeideas.org";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
         # Auto Tab Discard
         "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}" = {
           default_area = "menupanel";
@@ -63,25 +70,6 @@
       id = 0;
       name = "default";
       isDefault = true;
-      bookmarks = {
-        force = true;
-        settings = [
-          {
-            name = "Default";
-            toolbar = true;
-            bookmarks = [
-              {
-                name = "girlcloud";
-                url = "https://5-htp.store";
-              }
-              {
-                name = "YouTube";
-                url = "https://youtube.com";
-              }
-            ];
-          }
-        ];
-      };
       search = {
         force = true;
         default = "Startpage";
@@ -106,7 +94,7 @@
             definedAliases = [ "@np" ];
           };
           "NixOS Wiki" = {
-            urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
+            urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
             icon = "https://wiki.nixos.org/favicon.png";
             definedAliases = [ "@nw" ];
           };

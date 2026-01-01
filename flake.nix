@@ -19,6 +19,7 @@
 
     # niri as my compositor
     niri.url = "github:sodiboo/niri-flake";
+    niri-screen-time.url = "github:probeldev/niri-screen-time";
 
     # stylix for consistent theming
     stylix = {

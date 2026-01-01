@@ -104,6 +104,7 @@
     }
     binds {
         Alt+Print { screenshot-window; }
+        Ctrl+L { spawn "hyprlock"; }
         Mod+1 { focus-workspace 1; }
         Mod+2 { focus-workspace 2; }
         Mod+3 { focus-workspace 3; }
@@ -194,6 +195,7 @@
     spawn-at-startup "xwayland-satellite"
     spawn-at-startup "swww" "init"
     spawn-at-startup "waybar"
+    spawn-at-startup "niri-screen-time -daemon"
     window-rule {
         match app-id="equibop"
         open-on-output "HDMI-A-1"

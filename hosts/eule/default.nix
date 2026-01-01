@@ -31,8 +31,22 @@
   vro.other.nvidia.enable = true;
   vro.services.bluetooth.enable = true;
   services.thermald.enable = true;
-  services.logind.lidSwitch = "suspend";
   services.fwupd.enable = true;
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend";
+  };
+  systemd.user.services.locksuspend = {
+    enable = true;
+    description = "Lock screen and suspend when closing Lid";
+    before = "sleep.target";
+    serviceConfig = {
+      Type = "forking";
+      ExecStart = "hyprlock";
+    };
+    environment = "DISPLAY=:0";
+    wantedBy = "sleep.target";
+  };
+
   services.fprintd.enable = true;
   services.fprintd.tod.enable = true;
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;

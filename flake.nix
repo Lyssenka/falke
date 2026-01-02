@@ -27,6 +27,10 @@
     };
     # spicetify-nix to customize spotify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    openmw-nix = {
+      url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {

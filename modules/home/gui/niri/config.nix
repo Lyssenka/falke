@@ -178,6 +178,7 @@
         Mod+WheelScrollRight { focus-column-right; }
         Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
         Mod+X { close-window; }
+        Mod+M { spawn "appimage-run" "/home/lyssa/Documents/feishin.AppImage"; }
         "Mod+dead_circumflex" { spawn "kitty"; }
         Print { screenshot; }
         XF86MonBrightnessDown { spawn "light" "-U" "5"; }
@@ -208,6 +209,7 @@
     }
     window-rule {
         match app-id="Spotify"
+        match app-id="Feishin"
         open-on-output "DP-2"
         open-on-workspace "1"
         open-maximized true

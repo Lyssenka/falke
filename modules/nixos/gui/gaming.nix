@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }:
 let
@@ -25,8 +26,19 @@ in
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
-      extraCompatPackages = with pkgs; [ proton-ge-bin ];
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
     };
+
+    environment.systemPackages = with inputs.openmw-nix.packages.x86_64-linux; [
+      delta-plugin
+      openmw-validator
+      momw-configurator
+      umo
+      groundcoverify
+      s3lightfixes
+    ];
 
     home-manager.sharedModules = [
       {
@@ -36,6 +48,9 @@ in
           # itch
           # cemu
           heroic
+          openmw
+          duckstation
+          hedgemodmanager
         ];
       }
     ];
